@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Generic Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="height: 300px; margin-bottom: 50px; max-width: 300px;">
+        <ion-card style="text-align: -webkit-center;">
+          <app-profile-summary [user]=user$></app-profile-summary>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card size="true" style="height: 288px; text-align: -webkit-center;">
+          <h3>Information</h3>
+          <ion-row>
+            <ion-col>
+              <ion-row>
+                <ion-col>
+                  <div>First Name</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).firstname}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>Last Name</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).lastname}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div>Gender</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).gender}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>Contact Number</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).phonenumber}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div>Current Location</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).location}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>Country</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).country}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div>Email Address</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).email}}</div>
+                </ion-col>
+                <ion-col>
+                  <div>Birthday</div>
+                </ion-col>
+                <ion-col>
+                  <div>{{(user$ | async).birthday}}</div>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <h2 style="text-align: -webkit-center;">Photos</h2>
+          <ion-row>
+            <ion-col sizeXs="12" sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  style="display: flex; justify-content: center;" *ngFor="let connection of photos">
+              <ion-card color="primary">
+                <img src="https://github.com/ionic-team/ionic-docs/blob/main/static/demos/api/card/madison.jpg?raw=true" />
+                <ion-card-header>
+                  <ion-card-subtitle>{{connection}}</ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

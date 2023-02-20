@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>following</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-card>
+      <h2 style="text-align: center;">following</h2>
+      <ion-row>
+        <!-- <ion-col sizeXs="12" sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"  style="display: flex; justify-content: center;" *ngFor="let connection of connections"></ion-col> -->
+        <ion-col sizeXs="12" sizeSm="6" size="4" sizeMd="4" sizeLg="3" sizeXl="2"
+          style="display: flex; justify-content: center;" *ngFor="let followee of following$ | async">
+          <app-connections-card [user]=followee></app-connections-card>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>
+

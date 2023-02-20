@@ -1,0 +1,78 @@
+<ion-content>
+  <div class="flex-center">
+    <!-- <ion-card style="min-width: 520px;"> -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Registration</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate *ngIf="form">
+          <ion-item>
+            <ion-label position="floating">Display Name</ion-label>
+            <ion-input formControlName="displayname" type="" required></ion-input>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.displayname.errors?.required">
+            Display Name is required.
+          </span>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input formControlName="firstname" type="" required></ion-input>
+              </ion-item>
+              <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.required">
+                First Name is required.
+              </span>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input formControlName="lastname" type="" required></ion-input>
+              </ion-item>
+              <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.required">
+                Last Name is required.
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="email" required></ion-input>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+            Email is required.
+          </span>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" type="password" required></ion-input>
+              </ion-item>
+              <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+                Password is required.
+              </span>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input formControlName="passwordConfirm" type="password" required></ion-input>
+              </ion-item>
+              <span class="error ion-padding" *ngIf="isSubmitted && errorControl.passwordConfirm.errors?.required">
+                Confirmation is required.
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <ion-label>Accept Terms of Service</ion-label>
+            <ion-checkbox slot="start" color="dark" formControlName="termsOfService" required></ion-checkbox>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.termsOfService.errors?.required">
+            Accepting Terms of Service is required.
+          </span>
+          <ion-button type="submit" [color]="!(formMessageStatus$ | async).error ? 'dark' : 'danger'" expand="block">
+            {{(formMessageStatus$ | async).message}}</ion-button>
+          <ion-button expand="full" fill="clear" [routerLink]="['/auth/login']">Login</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
